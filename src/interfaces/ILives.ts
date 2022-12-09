@@ -1,72 +1,59 @@
-export interface ILive {
-  fixture: {
-    id: number;
-    referee: string;
-    timezone: string;
-    date: string;
-    timestamp: number;
-    periods: {
-      first: number | null;
-      second: number | null;
-    };
-    venue: {
-      id: number;
-      name: string;
-      city: string;
-    };
-    status: {
-      long: string;
-      short: string;
-      elapsed: number | null;
-    };
-  };
-  league: {
-    id: number;
-    name: string;
-    country: string;
-    logo: string;
-    flag: string;
-    season: number;
-    round: string;
-  };
-  teams: {
-    home: {
-      id: number;
-      name: string;
-      logo: string;
-      winner: boolean | null;
-    };
-    away: {
-      id: number;
-      name: string;
-      logo: string;
-      winner: boolean | null;
-    };
-  };
-  goals: {
-    home: number | null;
-    away: number | null;
-  };
-  score: {
-    halftime: {
-      home: number | null;
-      away: number | null;
-    };
-    fulltime: {
-      home: number | null;
-      away: number | null;
-    };
-    extratime: {
-      home: number | null;
-      away: number | null;
-    };
-    penalty: {
-      home: number | null;
-      away: number | null;
-    };
-  };
-}
-
 export interface ILives {
-  response: ILive[];
+  response: Ilive[];
+}
+export interface Ilive {
+  fixture: Fixture;
+  league: League;
+  teams: Goals;
+  goals: Goals;
+  score: Score;
+}
+export interface Fixture {
+  id: number;
+  referee: string;
+  timezone: string;
+  date: string;
+  timestamp: number;
+  periods: Periods;
+  venue: Venue;
+  status: Status;
+}
+export interface Periods {
+  first: number | null;
+  second: number | null;
+}
+export interface Status {
+  long: string;
+  short: string;
+  elapsed: number | null;
+}
+export interface Venue {
+  id: number;
+  name: string;
+  city: string;
+}
+export interface Goals {
+  home: AwayClass | number | null;
+  away: AwayClass | number | null;
+}
+export interface AwayClass {
+  id: number;
+  name: string;
+  logo: string;
+  winner: boolean | null;
+}
+export interface League {
+  id: number;
+  name: string;
+  country: string;
+  logo: string;
+  flag: string;
+  season: number;
+  round: string;
+}
+export interface Score {
+  halftime: Goals;
+  fulltime: Goals;
+  extratime: Goals;
+  penalty: Goals;
 }
