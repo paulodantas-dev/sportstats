@@ -57,7 +57,7 @@ export interface AwayClass {
   id: number;
   name: string;
   logo: string;
-  winner?: boolean | null;
+  winner?: boolean;
   last_5?: Last5;
   league?: AwayLeague;
 }

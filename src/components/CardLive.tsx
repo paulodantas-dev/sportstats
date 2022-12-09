@@ -19,7 +19,7 @@ export const CardLive = ({ prediction }: CardLiveProps) => {
       <div className="flex-grow grid grid-cols-3 ">
         <div className="flex flex-col items-center justify-center">
           <Image
-            src={prediction.teams.home.logo}
+            src={prediction.teams.home.logo ?? ""}
             alt={""}
             width={70}
             height={70}
@@ -29,18 +29,18 @@ export const CardLive = ({ prediction }: CardLiveProps) => {
           </span>
         </div>
         <div className="flex flex-col gap-2 items-center justify-center text-4xl">
-          <span className="font-extrabold text-4xl">
-            {prediction.goals.home}
+          <div className="font-extrabold text-4xl">
+            <span>{prediction.goals.home}</span>
             <span className="text-sky-700 mx-2 font-extrabold text-4xl">-</span>
-            {prediction.goals.away}
-          </span>
+            <span>{prediction.goals.away}</span>
+          </div>
           <p className="text-xs font-thin text-slate-300">
             {format(new Date(prediction.fixture.date), "dd/MM/yyyy")}
           </p>
         </div>
         <div className="flex flex-col items-center justify-center">
           <Image
-            src={prediction.teams.away.logo}
+            src={prediction.teams.away?.logo ?? ""}
             alt={""}
             width={70}
             height={70}

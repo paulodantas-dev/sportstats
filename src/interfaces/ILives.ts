@@ -1,7 +1,7 @@
 export interface ILives {
-  response: Ilive[];
+  response: ILive[];
 }
-export interface Ilive {
+export interface ILive {
   fixture: Fixture;
   league: League;
   teams: Goals;
@@ -33,13 +33,13 @@ export interface Venue {
   city: string;
 }
 export interface Goals {
-  home: AwayClass | number | null;
-  away: AwayClass | number | null;
+  home: AwayClass;
+  away: AwayClass;
 }
 export interface AwayClass {
-  id: number;
-  name: string;
-  logo: string;
+  id: number | null;
+  name: string | null;
+  logo: string | null;
   winner: boolean | null;
 }
 export interface League {
