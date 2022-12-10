@@ -5,6 +5,7 @@ import { CardLive } from "../../components/CardLive";
 
 export default function Predictions() {
   const [predictions, setPredictions] = useState<ILives>(dataLives);
+
   return (
     <div className="p-2 bg-slate-800 rounded h-full flex flex-col gap-4">
       <h1 className="uppercase text-3xl font-extrabold text-sky-700 md:text-5xl lg:text-6xl">
